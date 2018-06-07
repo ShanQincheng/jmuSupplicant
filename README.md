@@ -22,6 +22,8 @@
 * 推荐运行命令 sudo ./jmuSupplicant.out -u学号 -p密码 -s0 -b -n --ip 123.456.789.123
 * 程序输出锐捷认证信息，或显示 login success， 则认证成功。
 
+---
+
 ### License
 
 Apache version 2.0
