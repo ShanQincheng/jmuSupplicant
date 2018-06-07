@@ -24,7 +24,7 @@ $(ODIR)/%.o: src/%.c $(DEPS)
 
 $(ODIR)/%.o: src/mentohust_encryption/%.c $(MENTO_DEPS)
 		$(CC) -c -o $@ $< $(MENTO_CFLAGS) 
-test.out: $(OBJ)
+jmuSupplicant.out: $(OBJ)
 	      gcc -g -Wall -o $@ $^ $(LIBS)
 
 .PHONY: clean
