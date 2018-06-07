@@ -1,7 +1,6 @@
 # jmuSupplicant
 
-[![License](/l/rustc-serialize.svg)](https://raw.githubusercontent.com/ShanQincheng/jmuSupplicant/master/LICENSE)
-/master/LICENSE.txt) 
+[![License](https://img.shields.io/crates/l/rustc-serialize.svg)](https://raw.githubusercontent.com/ShanQincheng/jmuSupplicant/master/LICENSE)
 
 这是一个适用于集美大学的第三方锐捷认证客户端。除了实现基础的认证并保持在线功能以外，额外实现了夜晚断网后认证功能。
 普通认证支持所有服务类型的选择，夜晚断网后认证服务类型仅支持”教育网接入“。经测试，12:00p.m.后网速有较大提升，爱奇艺1080P勉强能够，抖音，Weibo毫无压力。
