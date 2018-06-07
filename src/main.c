@@ -54,9 +54,9 @@ static void ShowUsage()
 
    //       "\t-d, --dns             指定 DNS 服务器地址。 \n\n"
 
-          "\t--ip                  指定 ip 地址,推荐配合 mignight 模式中使用。 \n"
-          "\t--mask                指定 Netmask(子网遮罩) 地址。 \n"
-          "\t-i                    指定 网卡名称，则程序中不再要求用户手动选择网卡\n" 
+          "\t--ip                  指定 ip 地址,推荐配合 mignight 模式中使用。 \n\n"
+          "\t--mask                指定 Netmask(子网遮罩) 地址。 \n\n"
+          "\t--interface_card      指定 网卡名称，则程序中不再要求用户手动选择网卡\n\n" 
           "\t-n                    开启 midnight 模式,断网后使用。\n\n"
 
           "\t-b, --background      认证成功后,jmuSupplicant进入 dameon 模式,后台运行。\n\n"
@@ -66,7 +66,7 @@ static void ShowUsage()
           "\t-h, --help            展开 jmuSupplicant 运行帮助。\n\n"
           "\n"
           "  关于 jmuSupplicant:\n\n"
-          "\tjmuSupplicant is a program developed individually and release under APGLv3 \n"
+          "\tjmuSupplicant is a program developed individually by 入山 and release under Apache-v2.0 \n"
           "\tlicense as free software, with NO any relaiontship with Ruijie company.\n\n\n"
 
    //       "\tAnother codingstory work. Blog: https://codingstory.com.cn\n"
