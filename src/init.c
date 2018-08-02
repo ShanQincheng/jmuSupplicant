@@ -497,10 +497,26 @@ int init_NIC_address(NIC_STRUCT *nic_info)
 
 static void PrintInitConfig()
 {
+  char* isp_name = NULL;
   printf("\nUserName:\t%s\n", username);
   printf("Network Card:\t%s\n", nic_info.nic_name);
-  printf("service name:\t%s\n\n\n", service_name);
-
+  unsigned int integer_type_service_company = atoi(service_company);
+  integer_type_service_company %= 4;
+  switch(integer_type_service_company) {
+    case 0:
+      isp_name = "教育网接入";
+      break;
+    case 1:
+      isp_name = "联通宽带接入";
+      break;
+    case 2:
+      isp_name = "移动宽带接入";
+      break;
+    case 3:
+      isp_name = "电信宽带接入";
+      break;
+  }
+  printf("service name:\t%s\n\n\n", isp_name);
   return;
 }
 

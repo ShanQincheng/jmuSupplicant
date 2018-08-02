@@ -1,0 +1,8 @@
+aux_source_directory("." JMUSUPPLICANT_SRCS)
+add_subdirectory("mentohust_encryption")
+set(EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
+set(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib")
+include(FindPCAP.cmake)
+add_executable("jmusupplicant" ${JMUSUPPLICANT_SRCS})
+target_link_libraries("jmusupplicant" "mentohust_encryption")
+target_link_libraries(jmusupplicant ${PCAP_LIBRARY})
