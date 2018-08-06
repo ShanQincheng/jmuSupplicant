@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <linux/if_link.h>
 
-#include <pcap/pcap.h>
+#include <pcap.h>
 
 #define DEFAULT_DHCPMODE 0
 #define MAX_PATH 255  // dhcp script max size 
