@@ -1,7 +1,7 @@
 #ifndef MENTO_MYFUN_
 #define MENTO_MYFUN_
 
-
+#include <sys/types.h>
 #include <arpa/inet.h>
 
 
