@@ -20,7 +20,7 @@
 git clone https://github.com/ShanQincheng/jmuSupplicant.git
 cd jmuSupplicant
 mkdir build
-cd muild
+cd build
 cmake ../
 make
 ```
@@ -83,7 +83,7 @@ cp -r pcap /home/xxx/openwrt-sdk-18.06.0-ar71xx-generic_gcc-7.3.0_musl.Linux-x86
 git clone https://github.com/ShanQincheng/jmuSupplicant.git
 cd jmuSupplicant
 mkdir build
-cd muild
+cd build
 cmake ../ -DCMAKE_FIND_ROOT_PATH=/home/xxx/openwrt-sdk-18.06.0-ar71xx-generic_gcc-7.3.0_musl.Linux-x86_64/staging_dir/toolchain-mips_24kc_gcc-7.3.0_musl -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY -DCMAKE_C_COMPILER=/home/xxx/openwrt-sdk-18.06.0-ar71xx-generic_gcc-7.3.0_musl.Linux-x86_64/staging_dir/toolchain-mips_24kc_gcc-7.3.0_musl/bin/mips-openwrt-linux-gcc
 make
 ```
