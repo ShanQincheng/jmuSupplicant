@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/crates/l/rustc-serialize.svg)](https://raw.githubusercontent.com/ShanQincheng/jmuSupplicant/master/LICENSE)
 
-这是一个适用于集美大学的第三方锐捷认证客户端。
+这是一个适用于集美大学的第三方锐捷认证客户端。关于实现此客户端的实现过程，可以参考[!锐捷认证过程分析与第三方锐捷认证客户端的设计与实现](https://github.com/ShanQincheng/jmuSupplicant/blob/master/doc/%E9%94%90%E6%8D%B7%E8%AE%A4%E8%AF%81%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90%E4%B8%8E%E7%AC%AC%E4%B8%89%E6%96%B9%E9%94%90%E6%8D%B7%E8%AE%A4%E8%AF%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.pdf)
 
 除了实现基础的认证并保持在线功能以外，额外实现了夜晚断网后认证功能。
 
