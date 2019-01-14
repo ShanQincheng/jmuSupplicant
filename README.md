@@ -14,7 +14,7 @@
 
 ## 普通编译
 
-首先请确保系统已安装 ```libpcap``` 库以及 ```CMake``` 。
+首先请确保系统已安装 ```libpcap``` 库以及 ```CMake,gcc,g++``` 。
 
 ```bash
 git clone https://github.com/ShanQincheng/jmuSupplicant.git
@@ -126,6 +126,7 @@ make
   - ar71xx
 - 其他：
   - 树莓派 2B
+  - 小米Mix2s based on chroot debain9 arm64
 
 # License
 
