@@ -21,6 +21,11 @@
 //
 
 #include "functions.h"
+#include "strnormalize.h"
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+
 
 static char* get_md5_digest(const char *str, size_t length)
 {
@@ -106,25 +111,34 @@ int code_convert(char *from_charset, char *to_charset,
   return 0;
 }
 
-void print_notification_msg(const uint8_t *frame)
+//added to convert GBK to utf-8
+static char *gbk2utf(char *gbksrc, size_t gbklen)	/* GBK转UTF－8 */
 {
-  char            msg_buf[1024];
-  size_t          msg_length;
-  char            *msg;
+    /* GBK一汉字俩字节，UTF-8一汉字3字节，二者ASCII字符均一字节
+         所以这样申请是足够的了，要记得释放 */
+    str_normalize_init();
 
-  // 锐捷的通知报文
-  msg = (char*)(frame + 0x1b);
-  msg_length = strlen (msg);
-  code_convert ("gb2312", "utf-8",
-                msg, msg_length,
-                msg_buf, 1024);
+    size_t utf8len = gbklen * 3 + 1;
+    char *utf8dst = (char *)malloc(utf8len);
 
-  fprintf (stdout, ">>Ruijie 通知: %s\n", msg_buf);
+    memset(utf8dst,0,utf8len);
+
+    char *temp=(char *)malloc(gbklen+5);
+    memset(temp, 0, gbklen+5);
+    memcpy(temp,gbksrc,gbklen);
+    gbksrc = temp;
+    gbklen = strlen(gbksrc);
+
+    gbk_to_utf8(gbksrc, gbklen, &utf8dst, &utf8len);
+
+    free(temp);
+
+    return utf8dst;
 }
 
 void print_server_info(const uint8_t *frame)
 {
-  char            msg_buf[1024];
+  char            *msg_buf;
   char            *msg;
   uint16_t        msg_length;
   uint16_t        empty_length;
@@ -137,22 +151,30 @@ void print_server_info(const uint8_t *frame)
   // success和failure报文系统信息的固定位置
   if (msg_length) {
     msg = (char*)(frame + 0x1c);
-    code_convert ("gb2312", "utf-8",
+    /*code_convert ("gb2312", "utf-8",
                   msg, msg_length,
-                  msg_buf, 1024);
-    if(strlen(msg_buf) > 0)
-      fprintf (stdout, ">>Ruijie 通知: %s\n", msg_buf);
+                  msg_buf, 1024);*/
+    msg_buf=gbk2utf(msg,msg_length);
+    if(strlen(msg_buf) > 0) {
+        fprintf (stdout, ">>Ruijie 通知: %s\n", msg_buf);
+        free(msg_buf);  //打印完就要释放
+    }
+
   }
 
   // success报文关于用户账户信息 
   msg_length = *(uint8_t*)(frame + account_info_offset + 0x07);
   if (msg_length) {
     msg = (char*)(frame + account_info_offset + 0x08);
-    code_convert ("gb2312", "utf-8",
+    /*code_convert ("gb2312", "utf-8",
                   msg, msg_length,
-                  msg_buf, 1024);
-    if(strlen(msg_buf) > 0)
-      fprintf (stdout, ">>账户信息: %s\n", msg_buf);
+                  msg_buf, 1024);*/
+    msg_buf=gbk2utf(msg,msg_length);
+    if(strlen(msg_buf) > 0) {
+        fprintf (stdout, ">>账户信息: %s\n", msg_buf);
+        free(msg_buf);
+    }
+
   }
 
   return;
