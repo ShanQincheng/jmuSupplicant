@@ -1,9 +1,15 @@
-#ifndef FUNCTIONS__
+#ifndef FUNCTIONS_
 #define FUNCTIONS_
 
 #include <stdint.h>
 #include <string.h>
+
+#ifndef __linux
+#include <sys/malloc.h>
+#else /* BSD System like macOS*/
 #include <malloc.h>
+#endif
+
 #include <iconv.h>
 #include <fcntl.h>
 #include <signal.h>
