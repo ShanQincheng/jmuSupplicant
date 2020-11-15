@@ -2,8 +2,17 @@
 #define CONSTRUCT_FRAMES_
 
 #define DEBUG 1
+//If using macos we should use sys/malloc.h instead of malloc.h
+//
+//	Evsio0n <admin@openjmu.xyz> 2020/7/28/7:14:08
+//
+//We should add different include type for libpcap to port it on macOS
 
+#ifndef __linux
+#include <sys/malloc.h>
+#else /* BSD like System macOS*/
 #include <malloc.h>
+#endif
 #include <string.h>
 #include <errno.h>
 #include <string.h>

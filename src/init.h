@@ -7,14 +7,24 @@
 #include <net/ethernet.h>
 #include <errno.h>
 #include <sys/ioctl.h>
+
+#ifndef __linux
+#include <net/if.h>
+#include <netinet/in.h>
+#include <net/if_dl.h>
+#include <net/ethernet.h>
+#else /* if BSD */
 #include <net/if.h>
 #include <net/if_arp.h>
+#include <linux/if_link.h>
+#endif
+
 #include <sys/socket.h>
 #include <netdb.h>
 #include <ifaddrs.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <linux/if_link.h>
+
 
 #include <pcap.h>
 
